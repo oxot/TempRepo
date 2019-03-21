@@ -51,11 +51,11 @@ TKroot = Tk()
 TKroot.title("Hello")
 
 root = Frame(TKroot)
-root.place(relx=0, rely=0, relwidth=1)
+root.pack(fill=BOTH)
 
 root.columnconfigure(0, weight=1)
-root.columnconfigure(1, weight=2)
-root.rowconfigure(0, weight=10)
+root.columnconfigure(1, weight=1)
+root.rowconfigure(0, weight=1)
 root.rowconfigure(1, weight=1)
 
 Butt = Button(root, text="Add")
