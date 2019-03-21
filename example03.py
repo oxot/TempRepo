@@ -20,9 +20,11 @@ def dump(*args):
 
 
 	but = Button(root, text='B', command=butPr)
-	but.grid(column=0, row=i)
+	but.grid(column=0, row=i, sticky=E+W+S+N)
 	lab = Label(root, text='text')
-	lab.grid(column=1, row=i)
+	lab.grid(column=1, row=i, sticky=E+W+S+N)
+
+	root.rowconfigure(i, weight=1)
 	i+=1
 
 COLORS =['snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'old lace',    'linen', 'antique white', 'papaya whip', 'blanched almond', 'bisque', 'peach puff',    'navajo white', 'lemon chiffon', 'mint cream', 'azure', 'alice blue', 'lavender',
@@ -51,18 +53,17 @@ TKroot = Tk()
 TKroot.title("Hello")
 
 root = Frame(TKroot)
-root.pack(fill=BOTH)
+root.pack(fill=BOTH, expand=1, anchor=N)
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
-root.rowconfigure(0, weight=1)
 root.rowconfigure(1, weight=1)
 
 Butt = Button(root, text="Add")
 Butt.bind('<Button-1>', dump)
-Butt.grid(row=0, column=0, sticky=E+W)
+Butt.grid(row=0, column=0, sticky=E+W+N)
 Exit = Button(root, text="Exit", command=root.quit)
-Exit.grid(row=0, column=1, sticky=E+W)
+Exit.grid(row=0, column=1, sticky=E+W+N)
 
 TKroot.mainloop()
 print("Done")
